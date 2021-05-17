@@ -57,7 +57,28 @@ export declare type ButtonProps = Omit<
  */
 export declare const Button: React.ForwardRefExoticComponent<
   Pick<
-    ButtonProps,
+    Omit<
+      React.DetailedHTMLProps<
+        React.ButtonHTMLAttributes<HTMLButtonElement>,
+        HTMLButtonElement
+      >,
+      'children'
+    > & {
+      /** text rendered inside button */
+      label?: string
+      /** icon rendered */
+      icon?: JSX.Element
+      /** placement of icon with respect to label, whether it should be before label or after label */
+      iconPlacement?: IconPlacement
+      /** type of the button */
+      buttonType?: ButtonType
+      /** show loading spinner in the button, if there is a icon present, it would render instead of the icon */
+      loading?: boolean
+      /** additional class applied to button */
+      className?: string
+      /** button styles */
+      style?: React.CSSProperties
+    },
     | 'disabled'
     | 'loading'
     | 'hidden'

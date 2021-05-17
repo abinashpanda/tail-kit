@@ -2,7 +2,22 @@
 import { CheckboxGroup } from './checkbox-group'
 declare const _default: import('react').ForwardRefExoticComponent<
   Pick<
-    import('./checkbox').CheckboxProps,
+    Omit<
+      import('react').DetailedHTMLProps<
+        import('react').InputHTMLAttributes<HTMLInputElement>,
+        HTMLInputElement
+      >,
+      'disabled' | 'style' | 'className' | 'onChange' | 'checked'
+    > & {
+      checked?: boolean | 'indeterminate'
+      defaultChecked?: boolean | 'indeterminate'
+      label?: import('react').ReactNode
+      error?: boolean
+      disabled?: boolean
+      onChange?: (event: import('react').ChangeEvent<HTMLInputElement>) => void
+      className?: string
+      style?: import('react').CSSProperties
+    },
     | 'max'
     | 'required'
     | 'disabled'
